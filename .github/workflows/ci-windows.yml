@@ -31,7 +31,7 @@ jobs:
           echo "PWD=$(c:\msys64\usr\bin\cygpath -u $(pwd))" >> $GITHUB_ENV
       - name: Configure and Build Chez Scheme
         run: |
-          c:\msys64\usr\bin\bash -l -c "cd $env:PWD && cd ChezScheme && ./configure --threads && make"
+          c:\msys64\usr\bin\bash -l -c "cd $PWD && cd ChezScheme && ./configure --threads && make"
       - name: Set Path
         run: |
           $chez="$(pwd)\ChezScheme\ta6nt\bin\ta6nt"
@@ -44,4 +44,4 @@ jobs:
         run: |
           scheme --version
       - name: Bootstrap and install
-        run: c:\msys64\usr\bin\bash -l -c "cd $env:PWD && make bootstrap && make install"
+        run: c:\msys64\usr\bin\bash -l -c "cd $PWD && make bootstrap && make install"
